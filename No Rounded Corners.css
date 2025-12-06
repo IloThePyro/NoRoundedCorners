@@ -144,7 +144,7 @@ body {
 	.guilds_5e434 /* server list */, 
 	.sidebarList_5e434 /* channel list (includes dm list) */,
 	.sidebarListRounded_5e434,
-	.panels_5e434 /* user panel */,
+	.panels__5e434 /* user panel */,
 	.chat_f75fb0,
 	.chat_f75fb0 > .subtitleContainer_f75fb0 /* chat titlebar */,
 	.chatContent_f75fb0 /* chat */,
@@ -202,7 +202,7 @@ body {
 
 	/* ----- BORDERS ----- */
 	/* border top */
-	.panels_5e434 /* user panel */,
+	.panels__5e434 /* user panel */,
 	.channelBottomBarArea_f75fb0 /* chatbar */ {
 		border-top: var(--app-border-width) solid var(--app-border-frame) !important;
 	}
@@ -215,8 +215,7 @@ body {
 
 	/* border right */
 	.sidebarList_5e434 /* dm and channel list */,
-
-	.panels_5e434 /* user panel */ {
+	.panels__5e434 /* user panel */ {
 		border-right: var(--app-border-width) solid var(--app-border-frame) !important;
 	}
 
@@ -238,7 +237,7 @@ body {
 	}
 
 	/* border left */
-	.panels_5e434 /* user panel */,
+	.panels__5e434 /* user panel */,
 	.members_c8ffbb /* thread members list */ {
 		border-left: var(--app-border-width) solid var(--app-border-frame) !important;
 	}
@@ -345,7 +344,7 @@ body {
 	/* userpanel user section top border when playing stuff on spotify */
 	.container_e131a9,
 	#vc-spotify-player {
-		// width: var(--spotify-container-width)
+		/* width: var(--spotify-container-width) */
 	}
 
 	.connection_e131a9{
