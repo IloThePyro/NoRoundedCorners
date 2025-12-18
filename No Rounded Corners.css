@@ -31,9 +31,10 @@ body {
 	--chatbar-border-top-width: 2px;
 	--message-wrapper-bottom-width: 0px;
 	/* width of the top border of the chatbar */
-	--chatbar-height: 48px;
-	--userpanel-height: calc(var(--chatbar-height));
+	--chatbar-height: var(--space-48);
+	--userpanel-height: var(--chatbar-height);
 	--dm-user-profile-footer-height: var(--chatbar-height);
+    --announcementChannelFollowPrompt-height: var(--space-24);
 	/* height of the chatbar */
 	--chatbar-padding: 0px;
 	/* padding of the chatbar */
@@ -166,6 +167,7 @@ body {
 	.fb64c9a451c49797-chat /* new thread panel */,
 	.a592e1970a0ce22c-container /* server discovery */,
 	.cb9592ad77576717-callContainer /* vc container */,
+    ._5dec784a68542d60-panel /* streaming container */,
 	.cb9592ad77576717-wrapper.cb9592ad77576717-sidebarOpen .cb9592ad77576717-callContainer /* vc container when chat open */,
 	._722ffae0e1be2672-callContainer /* stage */,
     .f75fb00fb7356cbe-chat > .c791b281f2fedc32-header /* server members header */,
@@ -210,13 +212,14 @@ body {
 	/* ----- BORDERS ----- */
 	/* border top */
 	._5e434347c823b592-panels /* user panel */,
-	.f75fb00fb7356cbe-channelBottomBarArea /* chatbar */
+	.f75fb00fb7356cbe-channelBottomBarArea /* chatbar */,
+    .ef3116c2da186559-tree /* server nav bar */
     {
-		border-top: var(--app-border-width) solid var(--app-border-frame) !important;
+		border-top: var(--app-border-width) solid var(--app-frame-border) !important;
 	}
 
 	/* border top none */
-	._740174f3d6a2c8fe-channelTextArea /* chatbar */,
+    ._740174f3d6a2c8fe-channelTextArea,
 	._740174f3d6a2c8fe-channelTextArea:focus-within /* chatbar focus-within*/
     {
 		border-top: none !important;
@@ -226,40 +229,45 @@ body {
 	._5e434347c823b592-sidebarList /* dm and channel list */,
 	._5e434347c823b592-panels /* user panel */
     {
-		border-right: var(--app-border-width) solid var(--app-border-frame) !important;
+		border-right: var(--app-border-width) solid var(--app-frame-border) !important;
 	}
 
 	/* border right none */
 	._740174f3d6a2c8fe-channelTextArea /* chatbar */,
-	._740174f3d6a2c8fe-channelTextArea:focus-within /* chatbar focus-within*/
+	._740174f3d6a2c8fe-channelTextArea:focus-within /* chatbar focus-within*/,
+    ._44df51b030bd5ece-wrapper /* follow popup in announcement channels */
     {
 		border-right: none !important;
 	}
 
-	/* border bottom
+	/* border bottom */
+    .e131a99484292a19-container /* vc container */
 	{
-		border-bottom: var(--app-border-width) solid var(--app-border-frame) !important;
-	} */
+		border-bottom: var(--app-border-width) solid var(--app-frame-border) !important;
+	}
 
 	/* border bottom none */
     ._5e434347c823b592-panels /* user panel */,
 	._740174f3d6a2c8fe-channelTextArea /* chatbar */,
-	._740174f3d6a2c8fe-channelTextArea:focus-within /* chatbar focus-within*/ 
+	._740174f3d6a2c8fe-channelTextArea:focus-within /* chatbar focus-within*/,
+    ._44df51b030bd5ece-wrapper /* follow popup in announcement channels */
     {
 		border-bottom: none !important;
 	}
 
 	/* border left */
     ._5e434347c823b592-panels /* user panel */,
-	.c8ffbb79449f399c-members /* thread members list */
+	.c8ffbb79449f399c-members /* thread members list */,
+    .f75fb00fb7356cbe-content > aside /* dm user panel */
     {
-		border-left: var(--app-border-width) solid var(--app-border-frame) !important;
+		border-left: var(--app-border-width) solid var(--app-frame-border) !important;
 	}
 
 	/* border left none */
 	._740174f3d6a2c8fe-channelTextArea /* chatbar */,
 	._740174f3d6a2c8fe-channelTextArea:focus-within /* chatbar focus-within*/,
-	.c8ffbb79449f399c-container /* members list */
+	.c8ffbb79449f399c-container /* members list */,
+    ._44df51b030bd5ece-wrapper /* follow popup in announcement channels */
     {
 		border-left: none !important;
 	}
@@ -329,7 +337,7 @@ body {
 		bottom: 0;
 		inset-inline-start: 0;
 		grid-area: userPanel;
-		width: 100%;
+		width: var(--userpanel-width);
 		margin: 0px 0px 1px 0px;
 		overflow: hidden;
 	}
@@ -461,10 +469,10 @@ body {
 	}
 
 	/* dm user panel */
-	.f75fb00fb7356cbe-content > aside > .c0bea05627c5dc35-outer {
+	.f75fb00fb7356cbe-content > aside > .c0bea05627c5dc35-outer > .c0bea05627c5dc35-inner > ._7f9c030b25536e94-footer {
 		height: var(--dm-user-profile-footer-height);
 	}
-	.f75fb00fb7356cbe-content > aside > .c0bea05627c5dc35-outer > ._7f9c030b25536e94-footerButton {
+	.f75fb00fb7356cbe-content > aside > .c0bea05627c5dc35-outer > .c0bea05627c5dc35-inner > ._7f9c030b25536e94-footerButton {
 		height: 100%;
 	}
 
@@ -659,6 +667,16 @@ body {
 		margin-bottom: calc(20px + var(--chatbar-padding));
 	}
 
+    /* fix announcement follow prompt */
+    .f75fb00fb7356cbe-form:has(._44df51b030bd5ece-wrapper) {
+        padding-inline: 0px;
+    }
+
+    ._44df51b030bd5ece-wrapper {
+        margin-bottom: 0px;
+        height: var(--announcementChannelFollowPrompt-height);
+    }
+
 	#app-mount {
 		--panel-backdrop-filter: blur(var(--blur-amount));
 	}
@@ -698,7 +716,10 @@ body {
 	display: none;
 }
 
-/* Hide Nitro Gift button */
-button[aria-label="Send a gift"] {
+/* Hide Add Media and Nitro Gift button */
+span[id="«r651»"] + ._740174f3d6a2c8fe-spacer,
+._740174f3d6a2c8fe-spacer + div[class="c0c49a3e5c8626ac-container"],
+div[aria-label="Add Media"],
+div[aria-label="Send a gift"] {
 	display: none;
 }
