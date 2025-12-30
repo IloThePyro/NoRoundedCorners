@@ -201,7 +201,7 @@ body {
 
 	/* set message hover background */
 	._5126c0cd07f243a0-message:hover {
-		background: var(--background-message-hover);
+		background: var(--message-background-hover);
 	}
 
 	/* set message popup background */
